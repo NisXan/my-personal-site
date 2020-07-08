@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/manifest/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/manifest/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/manifest/favicon-16x16.png">
-  <link rel="manifest" href="img/manifest/site.webmanifest">
-  <link rel="mask-icon" href="img/manifest/safari-pinned-tab.svg" color="#63b0b8">
-  <meta name="msapplication-TileColor" content="#63b0b8">
+  <meta charset="utf-8">
+  <title>Никита Ашенбреннер - Frontend–разработчик. Создание сайтов, верстка, веб-разработка.</title>
+  <meta name="description" content="Заказать разботку адаптивного кроссбраузерного веб сайта.">
+  <meta name="keywords" content="верстка, заказать, сайт, адаптивная, разработка">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="Никита Ашенбреннер - Frontend–разработчик. Создание сайтов, верстка, веб-разработка">
+  <meta property="og:description" content="Заказать разботку адаптивного кроссбраузерного веб сайта.">
   <meta name="theme-color" content="#63b0b8">
-  <title>Никита Ашенбреннер - Frontend–разработчик</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <link rel="shortcut icon" href="img/manifest/favicon.ico" type="image/x-icon">
+  <meta name="title" content="Никита Ашенбреннер - Frontend–разработчик. Создание сайтов, верстка, веб-разработка.">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">  
   <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/swiper-bundle.min.js" defer></script>
   <script src="js/script.js" defer></script>
+
+  <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(65367856, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/65367856" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 </head>
 <body>
   <header class="header">
     <div class="header__container fixed-container">
-      <button class="header__menu-mob" aria-label="Открыть меню"></button>
-      <nav class="header__menu">
-        <ul class="ul-reset">
-          <li><a href="#">Услуги</a></li>
-          <li><a href="#">Портфолио</a></li>
-          <li><a href="#">Стоимость</a></li>
+      <button class="header__toggle" aria-label="Открыть меню"></button>
+      <nav class="header__menu menu menu--row">
+        <ul class="menu__list ul-reset">
+          <li class="menu__item">
+            <a href="#services" class="menu__link">Услуги</a>
+          </li>
+          <li class="menu__item">
+            <a href="#slider" class="menu__link">Портфолио</a>
+          </li>
+          <li class="menu__item">
+            <a href="#banner" class="menu__link">Стоимость</a>
+          </li>
         </ul>
       </nav>
-      <a class="header__tel" href="tel:89673158113">+7 (967) 315-81-13</a>
-      <button class="btn empty">Заказать звонок</button>
+      <a class="header__phone" href="tel:+79673158113">+7 (967) 315-81-13</a>
+      <button class="header__order btn empty modal__popup" data-href="feedback">Заказать звонок</button>
     </div>
   </header>
   <main>
@@ -35,99 +45,122 @@
       <div class="fixed-container">
         <div class="about__textbox">
           <h1 class="h1">Никита Ашенбреннер</h1>
-          <p>Frontend-разработчик и веб-верстальщик</p>
-          <button class="btn filled">Узнать подробнее</button>
+          <p class="about__desc">Frontend-разработчик и веб-верстальщик</p>
+          <button class="about__order btn filled modal__popup" data-href="feedback">Узнать больше</button>
         </div>
-
-        <span class="about__floating1"></span>
-        <span class="about__floating2"></span>
-        <span class="about__floating3"></span>
-        <span class="about__floating4"></span>
-        <span class="about__floating5"></span>
-
+        <div class="elements about-elements" aria-hidden="true">
+          <span class="about-elements__item--1"></span>
+          <span class="about-elements__item--2"></span>
+          <span class="about-elements__item--3"></span>
+          <span class="about-elements__item--4"></span>
+          <span class="about-elements__item--5"></span>
+        </div>
         <div class="about__bg">
           <img src="img/percon.png" alt="Никита Ашенбреннер">
         </div>
       </div>
     </section>
-    <section class="wrapper services">
+    <section id="services" class="wrapper services">
       <div class="fixed-container">
         <h2 class="h2">Что я делаю</h2>
-        <ul class="ul-reset services-case">
-          <li class="case services-case__item1">
-            <p>Вёрстка лендинг–страниц и сайтов любой сложности</p>
+        <ul class="ul-reset services-cases">
+          <li class="services-cases__item--1">            
+            Вёрстка лендинг–страниц и сайтов любой сложности
           </li>
-          <li class="case services-case__item2">
-            <p>Адаптивная вёрстка под все браузеры и устройства</p>
+          <li class="services-cases__item--2">
+            Адаптивная вёрстка под все браузеры и устройства
           </li>
-          <li class="case services-case__item3">
-            <p>Frontend–разработка и программирование</p>
+          <li class="services-cases__item--3">
+            Frontend–разработка и программирование
           </li>
-          <li class="case services-case__item4">
-            <p>Исправление и доработка существующей вёрстки</p>
+          <li class="services-cases__item--4">
+            Исправление и доработка существующей вёрстки
           </li>
         </ul>
-        <button class="btn filled">Узнать стоимость</button>
+        <button class="services__order btn filled modal__popup" data-href="feedback">Узнать стоимость</button>
       </div>
     </section>
-    <section class="wrapper examples">
+    <section id="slider" class="wrapper slider">
       <div class="fixed-container">
         <h2 class="h2">Примеры моих работ</h2>
-        <div class="slider">
-          <button class="arrow left" aria-label="Листать на лево"></button>
-          <div class="case-container">
-            <div class="case slider__case">
-              <img src="img/cases/case1.jpg" alt="Сайт1">
-              <p>Сайт психолога Веры Антоновой</p>
-            </div>
-            <div class="case slider__case">
-              <img src="img/cases/case2.jpg" alt="Сайт2">
-              <p>Сайт магазина детской одежды</p>
-            </div>
-            <div class="case slider__case">
-              <img src="img/cases/case3.jpg" alt="Сайт3">
-              <p>Сайт магазина «Рыболов»</p>
-            </div>
+
+        <div class="slider__container">
+          <div class="slider__wrapper">
+            <ul class="slider__list ul-reset">
+              <li class="slider__item">
+                <img src="img/cases/case1.jpg" alt="Сайт психолога Веры Антоновой">
+                <p class="case__desc">Сайт психолога Веры Антоновой</p>
+              </li>
+              <li class="slider__item">
+                <img src="img/cases/case2.jpg" alt="Сайт магазина детской одежды">
+                <p class="case__desc">Сайт магазина детской одежды</p>
+              </li>
+              <li class="slider__item">
+                <img src="img/cases/case3.jpg" alt="Сайт магазина «Рыболов»">
+                <p class="case__desc">Сайт магазина «Рыболов»</p>
+              </li>
+            </ul>
           </div>
-          <button class="arrow right" aria-label="Листать на право"></button>
+
+          <button
+            class="slider__button slider__button--prev"
+            aria-label="Предыдущий слайд"
+          ></button>
+          <button
+            class="slider__button slider__button--next"
+            aria-label="Следующий слайд"
+          ></button>
+          <div
+            class="slider__pagination paginator"
+            aria-hidden="true"
+          ></div>
         </div>
-        <button class="btn filled">Заказать проект</button>
+
+        <button class="slider__order btn filled modal__popup" data-href="feedback">Заказать проект</button>
       </div>
     </section>
-    <section class="wrapper banner">
+    <section id="banner" class="wrapper banner">
       <div class="fixed-container">
-        <span class="banner__floating1"></span>
-        <span class="banner__floating2"></span>
-        <span class="banner__floating3"></span>
-        <span class="banner__floating4"></span>
-        <span class="banner__floating5"></span>
-        <h3 class="h3">Адаптивная вёрстка под все устройства и браузеры от 1000 рублей всего за 4 часа.*</h3>
-        <p>* Срок и стоимость могут отличаться от заявленных и рассчитываются  индивидуально, в зависимости от сложности задач.</p>
+        <div class="elements banner-elements" aria-hidden="true">
+          <span class="banner-elements__item--1"></span>
+          <span class="banner-elements__item--2"></span>
+          <span class="banner-elements__item--3"></span>
+          <span class="banner-elements__item--4"></span>
+          <span class="banner-elements__item--5"></span>
+        </div>
+        <h3 class="h3">Адаптивная вёрстка под все устройства <br>и браузеры от 1000 рублей всего за 4 часа.*</h3>
+        <p class="banner__desc">* Срок и стоимость могут отличаться от заявленных и рассчитываются  индивидуально, в зависимости от сложности задач.</p>
       </div>
     </section>
   </main>
   <footer class="footer">
     <div class="fixed-container">
-      <nav class="footer__col-left">
-        <ul class="ul-reset">
-          <li><a href="#">Услуги</a></li>
-          <li><a href="#">Портфолио</a></li>
-          <li><a href="#">Стоимость</a></li>  
+      <nav class="footer__col-left menu menu--column">
+        <ul class="menu__list ul-reset">
+          <li class="menu__item">
+            <a href="#services" class="menu__link">Услуги</a>
+          </li>
+          <li class="menu__item">
+            <a href="#slider" class="menu__link">Портфолио</a>
+          </li>
+          <li class="menu__item">
+            <a href="#banner" class="menu__link">Стоимость</a>
+          </li>
         </ul>
       </nav>
       <address class="footer__col-center">        
         <ul class="ul-reset contacts">
-          <li><a class="tel" href="tel:89673158113">+7 (967) 315-81-13</a></li>
-          <li><a class="mail" href="mailto:nisxan@mail.ru">nisxan@mail.ru</a></li>
+          <li class="contacts__item"><a class="contacts__link--tel" href="tel:89673158113">+7 (967) 315-81-13</a></li>
+          <li class="contacts__item"><a class="contacts__link--mail" href="mailto:nisxan@mail.ru">nisxan@mail.ru</a></li>
         </ul>
       </address>
       <div class="footer__col-right">
-        <button class="btn empty">Заказать звонок</button>
+        <button class="footer__order btn empty modal__popup" data-href="feedback">Заказать звонок</button>
         <ul class="ul-reset socials">
-          <li><a class="social__shareicon vk" href="#" aria-label="Вконтакте"></a></li>
-          <li><a class="social__shareicon fb" href="#" aria-label="Facebook"></a></li>
-          <li><a class="social__shareicon tweeter" href="#" aria-label="Tweeter"></a></li>
-          <li><a class="social__shareicon instagram" href="#" aria-label="Instagram"></a></li>
+          <li><a class="socials__shareicon--vk" href="https://vk.com/share.php?url=https://nisxan.ru/" target="_blank" aria-label="Вконтакте"></a></li>
+          <li><a class="socials__shareicon--fb" href="https://www.facebook.com/sharer/sharer.php?u=https://nisxan.ru/" target="_blank" aria-label="Facebook"></a></li>
+          <li><a class="socials__shareicon--tweeter" href="https://twitter.com/home?status=https://nisxan.ru/" target="_blank" aria-label="Tweeter"></a></li>
+          <li><a class="socials__shareicon--instagram" href="https://www.instagram.com/nikita_ashenbrenner/" target="_blank" aria-label="Instagram"></a></li>
         </ul>        
       </div>
     </div>
@@ -135,5 +168,35 @@
       © Никита Ашенбреннер, 2020
     </p>
   </footer>
+  <div id="modal-container" class="modal">
+    <div id="feedback" class="modal-content" style="display: none">
+      <div class="modal__bg" aria-hidden="true"></div>
+      <span class="close" aria-label="Закрыть окно">&times;</span>
+      <h2 class="modal__title">Оставьте свои контакты</h2>
+      <form class="form" method="post" action="/feedback.php">
+        <label for="formName" class="form__label">Ваше имя<span style="color: red"> *</span></label>
+        <input type="text" class="form__control" name="name" id="formName" placeholder="Иван Иванов" required>
+        <label for="formPhone" class="form__label">Ваш телефон<span style="color: red"> *</span></label>
+        <input type="text" class="form__control" name="phone" id="formPhone" placeholder="+7 (___)___-____" required>
+        <label for="formEmail" class="form__label">Ваш email<span style="color: red"> *</span></label>
+        <input type="email" class="form__control" name="mail" id="formEmail" placeholder="ivanov@gmail.com" required>
+        <label for="formText" class="form__label">Комментарий</label>
+        <textarea class="form__control" name="text" id="formText" rows="3"></textarea>
+
+        <button type="submit" class="modal__submit btn filled">Отправить</button>
+      </form>
+    </div>
+    
+    <div id="successful" class="modal-content" style="display: none">
+      <div class="modal__bg" aria-hidden="true"></div>
+      <span class="close" aria-label="Закрыть окно">&times;</span>
+      Ваше сообщение успешно отправленно. Я скоро свяжусь с вами! :)
+    </div>
+    <div id="error" class="modal-content" style="display: none">
+      <div class="modal__bg" aria-hidden="true"></div>
+      <span class="close" aria-label="Закрыть окно">&times;</span>
+      Произошла ошибка! Обновите страницу и попробуйте снова!
+    </div>
+  </div>
 </body>
 </html>

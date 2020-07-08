@@ -1,3 +1,17 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.nisxan.ru$ [NC]
-RewriteRule ^(.*)$ http://nisxan.ru/$1 [R=301,L]
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^site\.com\.ua [NC]
+RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|json)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# Cache-Control
+<ifModule mod_headers.c>
+<filesMatch "\.(html|htm|php|woff|woff2|jpg|jpeg|png|gif|svg|js|css)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+</ifModule>
