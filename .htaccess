@@ -1,8 +1,7 @@
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^site\.com\.ua [NC]
-RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteEngine On
+RewriteCond %{ENV:HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://nisxan.ru%{REQUEST_URI} [L,NE,R=301]
 
 <FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|json)$">
 Order Allow,Deny
