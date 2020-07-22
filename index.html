@@ -36,7 +36,7 @@
         </ul>
       </nav>
       <a class="header__phone" href="tel:+79673158113">+7 (967) 315-81-13</a>
-      <button class="header__order btn empty modal__popup" data-href="feedback">Заказать звонок</button>
+      <button class="header__order btn empty modal__popup">Заказать звонок</button>
     </div>
   </header>
   <main>
@@ -45,7 +45,7 @@
         <div class="about__textbox">
           <h1 class="h1">Никита Ашенбреннер</h1>
           <p class="about__desc">Frontend-разработчик и веб-верстальщик</p>
-          <button class="about__order btn filled modal__popup" data-href="feedback">Узнать больше</button>
+          <button class="about__order btn filled modal__popup">Узнать больше</button>
         </div>
         <div class="elements about-elements" aria-hidden="true">
           <span class="about-elements__item--1"></span>
@@ -76,7 +76,7 @@
             Исправление и доработка существующей вёрстки
           </li>
         </ul>
-        <button class="services__order btn filled modal__popup" data-href="feedback">Узнать стоимость</button>
+        <button class="services__order btn filled modal__popup">Узнать стоимость</button>
       </div>
     </section>
     <section id="slider" class="wrapper slider">
@@ -87,16 +87,22 @@
           <div class="slider__wrapper">
             <ul class="slider__list ul-reset">
               <li class="slider__item">
-                <img src="img/cases/case1.jpg" alt="Сайт психолога Веры Антоновой">
-                <p class="case__desc">Сайт психолога Веры Антоновой</p>
+                <a href="#" class="slider__item--href">
+                  <img src="img/cases/case1.jpg" alt="Сайт психолога Веры Антоновой">
+                  <p class="case__desc">Сайт психолога Веры Антоновой</p>
+                </a>
               </li>
               <li class="slider__item">
-                <img src="img/cases/case2.jpg" alt="Сайт магазина детской одежды">
-                <p class="case__desc">Сайт магазина детской одежды</p>
+                <a href="#" class="slider__item--href">
+                  <img src="img/cases/case2.jpg" alt="Сайт магазина детской одежды">
+                  <p class="case__desc">Сайт магазина детской одежды</p>
+                </a>
               </li>
               <li class="slider__item">
-                <img src="img/cases/case3.jpg" alt="Сайт магазина «Рыболов»">
-                <p class="case__desc">Сайт магазина «Рыболов»</p>
+                <a href="#" class="slider__item--href">
+                  <img src="img/cases/case3.jpg" alt="Сайт магазина «Рыболов»">
+                  <p class="case__desc">Сайт магазина «Рыболов»</p>
+                </a>
               </li>
             </ul>
           </div>
@@ -115,7 +121,7 @@
           ></div>
         </div>
 
-        <button class="slider__order btn filled modal__popup" data-href="feedback">Заказать проект</button>
+        <button class="slider__order btn filled modal__popup">Заказать проект</button>
       </div>
     </section>
     <section id="banner" class="wrapper banner">
@@ -154,7 +160,7 @@
         </ul>
       </address>
       <div class="footer__col-right">
-        <button class="footer__order btn empty modal__popup" data-href="feedback">Заказать звонок</button>
+        <button class="footer__order btn empty modal__popup">Заказать звонок</button>
         <ul class="ul-reset socials">
           <li><a class="socials__shareicon--vk" href="https://vk.com/share.php?url=https://nisxan.ru/" target="_blank" aria-label="Вконтакте"></a></li>
           <li><a class="socials__shareicon--fb" href="https://www.facebook.com/sharer/sharer.php?u=https://nisxan.ru/" target="_blank" aria-label="Facebook"></a></li>
@@ -167,31 +173,34 @@
       © Никита Ашенбреннер, 2020
     </p>
   </footer>
-  <div id="modal-container" class="modal">
-    <div id="feedback" class="modal-content" style="display: none">
-      <div class="modal__bg" aria-hidden="true"></div>
-      <span class="close" aria-label="Закрыть окно">&times;</span>
+  <div id="popup-container" class="modal">
+    <div id="feedback" class="modal__content" style="display: none">
       <h2 class="modal__title">Оставьте свои контакты</h2>
-      <form class="form" method="post" action="/feedback.php">
-        <label for="formName" class="form__label">Ваше имя<span style="color: red"> *</span></label>
-        <input type="text" class="form__control" name="name" id="formName" placeholder="Иван Иванов" required>
-        <label for="formPhone" class="form__label">Ваш телефон<span style="color: red"> *</span></label>
-        <input type="text" class="form__control" name="phone" id="formPhone" placeholder="+7 (___)___-____" required>
-        <label for="formEmail" class="form__label">Ваш email<span style="color: red"> *</span></label>
-        <input type="email" class="form__control" name="mail" id="formEmail" placeholder="ivanov@gmail.com" required>
-        <label for="formText" class="form__label">Комментарий</label>
-        <textarea class="form__control" name="text" id="formText" rows="3"></textarea>
 
-        <button type="submit" class="modal__submit btn filled">Отправить</button>
-      </form>
+      <div class="modal__content--box">
+        <div class="modal__bg" aria-hidden="true"></div>
+        <span class="close" aria-label="Закрыть окно">&times;</span>   
+
+        <form class="form" method="post" action="/feedback.php">
+          <label for="formName" class="form__label">Ваше имя<span style="color: red"> *</span></label>
+          <input type="text" class="form__control" name="name" id="formName" placeholder="Иван Иванов" required>
+          <label for="formPhone" class="form__label">Ваш телефон<span style="color: red"> *</span></label>
+          <input type="text" class="form__control" name="phone" id="formPhone" placeholder="+7 (___)___-____" required>
+          <label for="formEmail" class="form__label">Ваш email<span style="color: red"> *</span></label>
+          <input type="email" class="form__control" name="mail" id="formEmail" placeholder="ivanov@gmail.com" required>
+          <label for="formText" class="form__label">Комментарий</label>
+          <textarea class="form__control" name="text" id="formText" rows="3"></textarea>
+          <button type="submit" class="modal__submit btn filled">Отправить</button>
+        </form>
+      </div>
     </div>
     
-    <div id="successful" class="modal-content" style="display: none">
+    <div id="successful" class="modal__content" style="display: none">
       <div class="modal__bg" aria-hidden="true"></div>
       <span class="close" aria-label="Закрыть окно">&times;</span>
       Ваше сообщение успешно отправленно. Я скоро свяжусь с вами! :)
     </div>
-    <div id="error" class="modal-content" style="display: none">
+    <div id="error" class="modal__content" style="display: none">
       <div class="modal__bg" aria-hidden="true"></div>
       <span class="close" aria-label="Закрыть окно">&times;</span>
       Произошла ошибка! Обновите страницу и попробуйте снова!
